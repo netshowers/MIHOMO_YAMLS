@@ -67,6 +67,7 @@ https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/he
 https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[通用模版]-WhiteList-01.yaml|THEYAMLS/General_Config/Accademia/[通用模版]-WhiteList-01.yaml
 https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[通用模版]-WhiteList-02-Min.AntiAD.yaml|THEYAMLS/General_Config/Accademia/[通用模版]-WhiteList-02-Min.AntiAD.yaml
 https://raw.githubusercontent.com/Accademia/Clash_Configuration_Template/refs/heads/main/[通用模版]-WhiteList-03-Non.AntiAD.yaml|THEYAMLS/General_Config/Accademia/[通用模版]-WhiteList-03-Non.AntiAD.yaml
+https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/refs/heads/master/profile/mihomo.yaml|THEYAMLS/General_Config/Tangerinell/mihomo.yaml
 EOF
 )
 
