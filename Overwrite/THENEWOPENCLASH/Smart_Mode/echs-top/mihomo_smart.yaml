@@ -1,5 +1,5 @@
 # OpenClash 覆写模块 - mihomo_smart.yaml
-# 生成日期：2026-06-19
+# 生成日期：2026-07-05
 # 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/Smart_Mode/echs-top/mihomo_smart.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
@@ -265,10 +265,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Universal/RoundRobin.png
 #   name: 智能选择¹
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id003
 #   uselightgbm: true
 # - collectdata: false
@@ -277,10 +279,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Hong_Kong.png
 #   name: 香港|智能选择¹
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id003
 #   uselightgbm: true
 # - collectdata: false
@@ -289,10 +293,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Taiwan.png
 #   name: 台湾|智能选择¹
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id003
 #   uselightgbm: true
 # - collectdata: false
@@ -301,10 +307,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Singapore.png
 #   name: 新加坡|智能选择¹
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id003
 #   uselightgbm: true
 # - collectdata: false
@@ -313,10 +321,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Japan.png
 #   name: 日本|智能选择¹
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id003
 #   uselightgbm: true
 # - collectdata: false
@@ -325,10 +335,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/United_States.png
 #   name: 美国|智能选择¹
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id003
 #   uselightgbm: true
 # - collectdata: false
@@ -337,10 +349,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Germany.png
 #   name: 德国|智能选择¹
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id003
 #   uselightgbm: true
 # - collectdata: false
@@ -349,10 +363,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/United_Kingdom.png
 #   name: 英国|智能选择¹
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id003
 #   uselightgbm: true
 # - collectdata: false
@@ -361,10 +377,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Netherlands.png
 #   name: 荷兰|智能选择¹
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id003
 #   uselightgbm: true
 # - empty-fallback: REJECT
@@ -381,10 +399,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Universal/RoundRobin.png
 #   name: 智能选择²
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id004
 #   uselightgbm: true
 # - collectdata: false
@@ -393,10 +413,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Hong_Kong.png
 #   name: 香港|智能选择²
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id004
 #   uselightgbm: true
 # - collectdata: false
@@ -405,10 +427,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Taiwan.png
 #   name: 台湾|智能选择²
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id004
 #   uselightgbm: true
 # - collectdata: false
@@ -417,10 +441,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Singapore.png
 #   name: 新加坡|智能选择²
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id004
 #   uselightgbm: true
 # - collectdata: false
@@ -429,10 +455,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Japan.png
 #   name: 日本|智能选择²
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id004
 #   uselightgbm: true
 # - collectdata: false
@@ -441,10 +469,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/United_States.png
 #   name: 美国|智能选择²
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id004
 #   uselightgbm: true
 # - collectdata: false
@@ -453,10 +483,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Germany.png
 #   name: 德国|智能选择²
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id004
 #   uselightgbm: true
 # - collectdata: false
@@ -465,10 +497,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/United_Kingdom.png
 #   name: 英国|智能选择²
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id004
 #   uselightgbm: true
 # - collectdata: false
@@ -477,10 +511,12 @@
 #   hidden: true
 #   icon: https://mihomo.echs.top/img/Hand-Painted-icon/Rounded_Rectangle/Netherlands.png
 #   name: 荷兰|智能选择²
+#   policy-priority: ''
 #   prefer-asn: false
 #   sample-rate: 1
 #   strategy: sticky-sessions
 #   type: smart
+#   type-priority: ''
 #   use: *id004
 #   uselightgbm: true
 # - empty-fallback: REJECT
@@ -729,7 +765,7 @@
 #   default-nameserver:
 #   - 223.6.6.6
 #   - 119.29.29.29
-#   direct-nameserver: &id001
+#   direct-nameserver: &id002
 #   - https://dns.alidns.com/dns-query#直接连接
 #   - https://doh.pub/dns-query#直接连接&h3=false
 #   direct-nameserver-follow-policy: true
@@ -752,18 +788,17 @@
 #   fake-ip-ttl: 1
 #   ipv6: true
 #   ipv6-timeout: 300
-#   nameserver:
-#   - https://dns.google/dns-query#代理DNS
-#   - https://dns.quad9.net/dns-query#代理DNS
+#   nameserver: &id001
+#   - https://dns.google/dns-query#代理DNS&ecs=8.8.8.8/24&ecs-override=true
+#   - https://dns.quad9.net/dns-query#代理DNS&ecs=9.9.9.9/24&ecs-override=true
 #   nameserver-policy:
 #     rule-set:ads:
 #     - rcode://name_error
-#     rule-set:ai,download,safe,google,media,proxy-lite:
-#     - rcode://success
-#     rule-set:direct-lite,dnsmasq-china-lite: *id001
-#     rule-set:proxy@direct: *id001
+#     rule-set:ai,download,safe,google,media,proxy-lite: *id001
+#     rule-set:direct-lite,dnsmasq-china-lite: *id002
+#     rule-set:proxy@direct: *id002
 #   prefer-h3: true
-#   proxy-server-nameserver: *id001
+#   proxy-server-nameserver: *id002
 #   respect-rules: false
 #   use-hosts: true
 #   use-system-hosts: true

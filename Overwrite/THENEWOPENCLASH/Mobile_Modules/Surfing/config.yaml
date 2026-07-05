@@ -1,5 +1,5 @@
 # OpenClash 覆写模块 - config.yaml
-# 生成日期：2026-06-19
+# 生成日期：2026-07-05
 # 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/Mobile_Modules/Surfing/config.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
@@ -612,6 +612,9 @@
 # - DST-PORT,853,DNS连接
 # - RULE-SET,自定义规则,特殊地址
 # - RULE-SET,WebRTC_端/域,WebRTC
+# - RULE-SET,YouTube_域,YouTube
+# - RULE-SET,Google_域,Google
+# - RULE-SET,Google_IP,Google,no-resolve
 # - RULE-SET,No-ads-all_域,广告拦截
 # - PROCESS-NAME,com.ss.android.ugc.aweme,抖音
 # - RULE-SET,DouYin_域,抖音
@@ -626,10 +629,7 @@
 # - RULE-SET,TikTok_域,TikTok
 # - RULE-SET,Twitter_域,Twitter(X)
 # - RULE-SET,Twitter_IP,Twitter(X),no-resolve
-# - RULE-SET,YouTube_域,YouTube
 # - RULE-SET,GoogleFCM_域,GoogleFCM
-# - RULE-SET,Google_域,Google
-# - RULE-SET,Google_IP,Google,no-resolve
 # - RULE-SET,Netflix_域,Netflix
 # - RULE-SET,Netflix_IP,Netflix,no-resolve
 # - RULE-SET,Spotify_域,Spotify

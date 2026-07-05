@@ -1,6 +1,6 @@
-# OpenClash 覆写模块 - config.yaml
+# OpenClash 覆写模块 - mihomo.yaml
 # 生成日期：2026-07-05
-# 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/Mobile_Modules/ClashMix/config.yaml
+# 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/General_Config/YiXuanZX/mihomo.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
 # 本文件仅包含 [YAML] 块覆写内容，不含任何 [General] 插件设置。
@@ -83,30 +83,20 @@
 # ==========================================================
 #
 # proxy-providers:
-#   机场1:
-#     health-check: &id001
+#   provider1:
+#     header:
+#       User-Agent:
+#       - clash-verge/v2.5.0
+#     health-check:
 #       enable: true
-#       expected-status: 204
-#       interval: 3600
-#       lazy: true
-#       timeout: 3000
+#       interval: 300
+#       lazy: false
 #       url: https://www.gstatic.com/generate_204
-#     interval: 21600
-#     path: ./proxy_providers/机场1.yaml
+#     interval: 86400
+#     path: ./proxy_providers/provider1.yaml
+#     proxy: DIRECT
 #     type: http
-#     url: 订阅链接
-#   机场2:
-#     health-check: *id001
-#     interval: 21600
-#     path: ./proxy_providers/机场2.yaml
-#     type: http
-#     url: 订阅链接
-#   机场3:
-#     health-check: *id001
-#     interval: 21600
-#     path: ./proxy_providers/机场3.yaml
-#     type: http
-#     url: 订阅链接
+#     url: 此处填入订阅
 
 # ==========================================================
 # proxy-groups（从源文件直接提取）
@@ -117,49 +107,75 @@
 # ==========================================================
 #
 # proxy-groups:
-# - name: 代理
-#   proxies:
-#   - 手动选择
-#   - 全部节点
-#   - 自动切换
-#   - 智能选择
-#   type: select
-# - filter: 美国|USA|美國|us|US|United States
-#   include-all: true
-#   name: 手动选择
-#   type: select
-# - include-all: true
-#   name: 全部节点
-#   type: select
-# - expected-status: 204
-#   filter: 美国|USA|美國|us|US|United States
+# - filter: (?i)香港|hk
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
 #   include-all: true
 #   interval: 300
-#   lazy: true
-#   max-failed-times: 5
-#   name: 自动切换
-#   timeout: 3000
-#   type: fallback
+#   lazy: false
+#   name: 香港
+#   type: select
 #   url: https://www.gstatic.com/generate_204
-# - collectdata: false
-#   filter: 美国|USA|美國|us|US|United States
+# - filter: (?i)新加坡|sg
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
 #   include-all: true
-#   name: 智能选择
-#   policy-priority: IEPL:1.5
-#   prefer-asn: false
-#   strategy: sticky-sessions
-#   type: smart
-#   uselightgbm: true
-# - name: 广告
-#   proxies:
-#   - REJECT-DROP
-#   - PASS
+#   interval: 300
+#   lazy: false
+#   name: 新加坡
 #   type: select
-# - name: 中国网站
-#   proxies:
-#   - DIRECT
-#   - 代理
+#   url: https://www.gstatic.com/generate_204
+# - filter: (?i)日本|jp
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+#   include-all: true
+#   interval: 300
+#   lazy: false
+#   name: 日本
 #   type: select
+#   url: https://www.gstatic.com/generate_204
+# - filter: (?i)美国|us
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+#   include-all: true
+#   interval: 300
+#   lazy: false
+#   name: 美国
+#   type: select
+#   url: https://www.gstatic.com/generate_204
+# - exclude-filter: (?i)剩余|到期|香港|hk|新加坡|sg|日本|jp|美国|us
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Server.png
+#   include-all: true
+#   interval: 300
+#   lazy: false
+#   name: 其他
+#   type: select
+#   url: https://www.gstatic.com/generate_204
+# - default-selected: 香港
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+#   interval: 300
+#   lazy: false
+#   name: 代理
+#   proxies: &id001
+#   - 香港
+#   - 新加坡
+#   - 日本
+#   - 美国
+#   - 其他
+#   type: select
+#   url: https://www.gstatic.com/generate_204
+# - default-selected: 美国
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+#   interval: 300
+#   lazy: false
+#   name: AI
+#   proxies: *id001
+#   type: select
+#   url: https://www.gstatic.com/generate_204
+# - default-selected: 香港
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram_X.png
+#   interval: 300
+#   lazy: false
+#   name: TG
+#   proxies: *id001
+#   type: select
+#   url: https://www.gstatic.com/generate_204
 
 # ==========================================================
 # rule-providers（从源文件直接提取）
@@ -169,56 +185,110 @@
 # ==========================================================
 #
 # rule-providers:
-#   Fake-IP-Filter:
-#     behavior: domain
-#     format: mrs
-#     interval: 86400
-#     path: ./rule_providers/Fake-IP-Filter.mrs
-#     type: http
-#     url: https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/mihomo-ruleset/fakeip-filter.mrs
-#   GoogleFCM:
+#   ai:
 #     behavior: classical
 #     format: yaml
 #     interval: 86400
-#     path: ./rule_providers/GoogleFCM.yaml
+#     path: ./rule_providers/ai.yaml
+#     proxy: 代理
 #     type: http
-#     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleFCM/GoogleFCM.yaml
-#   中国IP:
+#     url: https://kelee.one/Tool/Clash/Rule/AI.yaml
+#   china-list:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./rule_providers/china-list.mrs
+#     proxy: 代理
+#     type: http
+#     url: https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/direct.mrs
+#   cn:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./rule_providers/cn.mrs
+#     proxy: 代理
+#     type: http
+#     url: https://static-file-global.353355.xyz/rules/cn-additional-list.mrs
+#   cn_ip:
 #     behavior: ipcidr
 #     format: mrs
 #     interval: 86400
-#     path: ./rule_providers/中国IP.mrs
+#     path: ./rule_providers/cn_ip.mrs
+#     proxy: 代理
 #     type: http
-#     url: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/cn.mrs
-#   中国域名:
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
+#   gfw:
 #     behavior: domain
-#     format: yaml
+#     format: mrs
 #     interval: 86400
-#     path: ./rule_providers/中国域名.yaml
+#     path: ./rule_providers/gfw.mrs
+#     proxy: 代理
 #     type: http
-#     url: https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/China/China_Domain.yaml
-#   私有地址:
-#     behavior: classical
-#     format: text
+#     url: https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/gfw.mrs
+#   github:
+#     behavior: domain
+#     format: mrs
 #     interval: 86400
-#     path: ./rule_providers/私有地址.txt
+#     path: ./rule_providers/github.mrs
+#     proxy: 代理
 #     type: http
-#     url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/meta/private.list
-#   秋风广告规则:
-#     behavior: classical
-#     format: yaml
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs
+#   google:
+#     behavior: domain
+#     format: mrs
 #     interval: 86400
-#     path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml
+#     path: ./rule_providers/google.mrs
+#     proxy: 代理
 #     type: http
-#     url: https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/refs/heads/main/Filters/AWAvenue-Ads-Rule-Clash-Classical.yaml
-#   自定义代理:
-#     behavior: classical
-#     path: ./rule_providers/userProxy.yaml
-#     type: file
-#   自定义直连:
-#     behavior: classical
-#     path: ./rule_providers/userDirect.yaml
-#     type: file
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs
+#   private:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./rule_providers/private.mrs
+#     proxy: 代理
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs
+#   private_ip:
+#     behavior: ipcidr
+#     format: mrs
+#     interval: 86400
+#     path: ./rule_providers/private_ip.mrs
+#     proxy: 代理
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
+#   telegram:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./rule_providers/telegram.mrs
+#     proxy: 代理
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
+#   telegram_ip:
+#     behavior: ipcidr
+#     format: mrs
+#     interval: 86400
+#     path: ./rule_providers/telegram_ip.mrs
+#     proxy: 代理
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
+#   twitter:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./rule_providers/twitter.mrs
+#     proxy: 代理
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs
+#   youtube:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./rule_providers/youtube.mrs
+#     proxy: 代理
+#     type: http
+#     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs
 
 # ==========================================================
 # rules（从源文件直接提取）
@@ -232,13 +302,22 @@
 # ==========================================================
 #
 # rules:
-# - RULE-SET,自定义代理,代理
-# - RULE-SET,自定义直连,中国网站
-# - RULE-SET,私有地址,DIRECT
-# - RULE-SET,GoogleFCM,中国网站
-# - RULE-SET,秋风广告规则,广告
-# - RULE-SET,中国域名,中国网站
-# - RULE-SET,中国IP,中国网站
+# - AND,((NETWORK,UDP),(DST-PORT,443),(RULE-SET,youtube)),REJECT
+# - DOMAIN,abyss.cyapi.cn,REJECT
+# - DOMAIN,ad.cyapi.cn,REJECT
+# - DOMAIN,gather.colorfulclouds.net,REJECT
+# - RULE-SET,private,DIRECT
+# - RULE-SET,private_ip,DIRECT,no-resolve
+# - RULE-SET,ai,AI
+# - RULE-SET,telegram,TG
+# - RULE-SET,telegram_ip,TG,no-resolve
+# - RULE-SET,github,代理
+# - RULE-SET,twitter,代理
+# - RULE-SET,youtube,代理
+# - RULE-SET,google,代理
+# - RULE-SET,gfw,代理
+# - RULE-SET,cn,DIRECT
+# - RULE-SET,cn_ip,DIRECT
 # - MATCH,代理
 
 # ==========================================================
@@ -250,25 +329,24 @@
 # ==========================================================
 #
 # dns:
+#   default-nameserver:
+#   - https://223.6.6.6/dns-query
 #   enable: true
 #   enhanced-mode: fake-ip
 #   fake-ip-filter:
-#   - RULE-SET:自定义直连
-#   - RULE-SET:Fake-IP-Filter
-#   - RULE-SET:私有地址
+#   - +.market.xiaomi.com
+#   - lancache.steamcontent.com
+#   - rule-set:private
+#   fake-ip-range: 198.18.0.1/16
 #   ipv6: true
-#   ipv6-timeout: 300
 #   nameserver:
-#   - 1.1.1.1#代理
-#   - 8.8.8.8#代理
+#   - quic://dns.alidns.com
 #   nameserver-policy:
-#     rule-set:自定义代理:
-#     - 1.1.1.1#代理
-#     - 8.8.8.8#代理
-#     rule-set:自定义直连,中国域名,私有地址,GoogleFCM:
-#     - 223.5.5.5#中国网站
-#     - 119.29.29.29#中国网站
+#     rule-set:china-list,cn:
+#     - quic://dns.alidns.com
+#     rule-set:gfw:
+#     - https://dns.google/dns-query#代理
+#     rule-set:private:
+#     - system
 #   proxy-server-nameserver:
-#   - 223.5.5.5#中国网站
-#   - 119.29.29.29#中国网站
-#   proxy-server-nameserver-policy: null
+#   - https://dns.alidns.com/dns-query

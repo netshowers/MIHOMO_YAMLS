@@ -1,5 +1,5 @@
 # OpenClash 覆写模块 - mihomoconfig.yaml
-# 生成日期：2026-06-19
+# 生成日期：2026-07-05
 # 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/General_Config/AIsouler/mihomoconfig.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
@@ -85,7 +85,7 @@
 # proxy-providers:
 #   provider1:
 #     age-secret-key: ''
-#     exclude-filter: 群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|⚠️|@|Expire|http|com
+#     exclude-filter: 群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|⚠️|@|Expire|http|com
 #     health-check:
 #       enable: true
 #       interval: 600
@@ -93,7 +93,7 @@
 #       url: https://g.cn/generate_204
 #     interval: 86400
 #     override:
-#       additional-suffix: '| p1'
+#       additional-prefix: 'p1 | '
 #     path: ./proxy_providers/provider1.yaml
 #     proxy: DIRECT
 #     type: http
@@ -138,7 +138,7 @@
 #   max-failed-times: 3
 #   name: 自动选择
 #   timeout: 3000
-#   tolerance: 100
+#   tolerance: 50
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
@@ -154,7 +154,8 @@
 #   timeout: 3000
 #   type: load-balance
 #   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
+# - default-selected: 美国
+#   empty-fallback: REJECT
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png
 #   interval: 600
 #   lazy: true
@@ -176,24 +177,27 @@
 #   type: select
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
 #   interval: 600
 #   lazy: true
 #   max-failed-times: 3
-#   name: YouTube
+#   name: Media
 #   proxies: *id001
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
+# - default-selected: 直连
+#   empty-fallback: REJECT
 #   icon: https://fastly.jsdelivr.net/gh/MiToverG422/Qure@master/IconSet/Color/fcm.png
 #   interval: 600
 #   lazy: true
 #   max-failed-times: 3
 #   name: FCM
-#   proxies:
-#   - 直连
+#   proxies: &id002
 #   - 默认代理
+#   - 自动选择
+#   - 负载均衡
+#   - 直连
 #   - 香港
 #   - 日本
 #   - 美国
@@ -201,8 +205,6 @@
 #   - 台湾省
 #   - 低倍率节点
 #   - 高倍率节点
-#   - 自动选择
-#   - 负载均衡
 #   - 其他节点
 #   timeout: 3000
 #   type: select
@@ -233,19 +235,7 @@
 #   lazy: true
 #   max-failed-times: 3
 #   name: Microsoft
-#   proxies: &id002
-#   - 默认代理
-#   - 自动选择
-#   - 负载均衡
-#   - 直连
-#   - 香港
-#   - 日本
-#   - 美国
-#   - 新加坡
-#   - 台湾省
-#   - 低倍率节点
-#   - 高倍率节点
-#   - 其他节点
+#   proxies: *id002
 #   timeout: 3000
 #   type: select
 #   url: https://g.cn/generate_204
@@ -270,31 +260,22 @@
 #   type: select
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: Cloudflare
-#   proxies: *id001
-#   timeout: 3000
-#   type: select
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
-#   icon: https://play-lh.googleusercontent.com/Ls9opXo6-wfEWmbBU8heJaFS8HwWydssWE1J3vexIGvkF-UJDqcW7ZMD8w6dQABfygONd4z3Yt4TfRDZAPYq=w480-h960-rw
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: Pixiv
-#   proxies: *id001
-#   timeout: 3000
-#   type: select
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png
 #   interval: 600
 #   lazy: true
 #   max-failed-times: 3
 #   name: Steam
+#   proxies: *id002
+#   timeout: 3000
+#   type: select
+#   url: https://g.cn/generate_204
+# - default-selected: 日本
+#   empty-fallback: REJECT
+#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png
+#   interval: 600
+#   lazy: true
+#   max-failed-times: 3
+#   name: TikTok
 #   proxies: *id001
 #   timeout: 3000
 #   type: select
@@ -305,16 +286,6 @@
 #   lazy: true
 #   max-failed-times: 3
 #   name: Twitter
-#   proxies: *id001
-#   timeout: 3000
-#   type: select
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Instagram.png
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: Instagram
 #   proxies: *id001
 #   timeout: 3000
 #   type: select
@@ -340,31 +311,11 @@
 #   type: select
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: TikTok
-#   proxies: *id001
-#   timeout: 3000
-#   type: select
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
-#   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
-#   interval: 600
-#   lazy: true
-#   max-failed-times: 3
-#   name: Netflix
-#   proxies: *id001
-#   timeout: 3000
-#   type: select
-#   url: https://g.cn/generate_204
-# - empty-fallback: REJECT
 #   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png
 #   interval: 600
 #   lazy: true
 #   max-failed-times: 3
-#   name: 广告拦截
+#   name: AdBlock
 #   proxies:
 #   - REJECT
 #   - REJECT-DROP
@@ -422,7 +373,7 @@
 #   max-failed-times: 3
 #   name: 香港-自动选择
 #   timeout: 3000
-#   tolerance: 100
+#   tolerance: 50
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
@@ -464,7 +415,7 @@
 #   max-failed-times: 3
 #   name: 日本-自动选择
 #   timeout: 3000
-#   tolerance: 100
+#   tolerance: 50
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
@@ -506,7 +457,7 @@
 #   max-failed-times: 3
 #   name: 美国-自动选择
 #   timeout: 3000
-#   tolerance: 100
+#   tolerance: 50
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
@@ -548,7 +499,7 @@
 #   max-failed-times: 3
 #   name: 新加坡-自动选择
 #   timeout: 3000
-#   tolerance: 100
+#   tolerance: 50
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
@@ -590,7 +541,7 @@
 #   max-failed-times: 3
 #   name: 台湾省-自动选择
 #   timeout: 3000
-#   tolerance: 100
+#   tolerance: 50
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
@@ -632,7 +583,7 @@
 #   max-failed-times: 3
 #   name: 低倍率节点-自动选择
 #   timeout: 3000
-#   tolerance: 100
+#   tolerance: 50
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
@@ -674,7 +625,7 @@
 #   max-failed-times: 3
 #   name: 高倍率节点-自动选择
 #   timeout: 3000
-#   tolerance: 100
+#   tolerance: 50
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
@@ -717,7 +668,7 @@
 #   max-failed-times: 3
 #   name: 其他节点-自动选择
 #   timeout: 3000
-#   tolerance: 100
+#   tolerance: 50
 #   type: url-test
 #   url: https://g.cn/generate_204
 # - empty-fallback: REJECT
@@ -775,30 +726,14 @@
 #     path-in-bundle: geo/geosite/apple@cn.mrs
 #     type: http
 #     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple@cn.mrs
-#   cloudflare:
+#   bbc:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
-#     path: ./ruleset/cloudflare.mrs
-#     path-in-bundle: geo/geosite/cloudflare.mrs
+#     path: ./ruleset/bbc.mrs
+#     path-in-bundle: geo/geosite/bbc.mrs
 #     type: http
-#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cloudflare.mrs
-#   cloudflare_cn:
-#     behavior: domain
-#     format: mrs
-#     interval: 86400
-#     path: ./ruleset/cloudflare@cn.mrs
-#     path-in-bundle: geo/geosite/cloudflare@cn.mrs
-#     type: http
-#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cloudflare@cn.mrs
-#   cloudflare_ip:
-#     behavior: ipcidr
-#     format: mrs
-#     interval: 86400
-#     path: ./ruleset/cloudflare_ip.mrs
-#     path-in-bundle: geo/geoip/cloudflare.mrs
-#     type: http
-#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cloudflare.mrs
+#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/bbc.mrs
 #   cn:
 #     behavior: domain
 #     format: mrs
@@ -823,6 +758,14 @@
 #     path-in-bundle: geo/geoip/cn.mrs
 #     type: http
 #     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs
+#   disney:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./ruleset/disney.mrs
+#     path-in-bundle: geo/geosite/disney.mrs
+#     type: http
+#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.mrs
 #   emby:
 #     behavior: domain
 #     format: mrs
@@ -844,7 +787,7 @@
 #     format: mrs
 #     interval: 86400
 #     path: ./ruleset/fakeip-filter.mrs
-#     path-in-bundle: geo/geosite/fakeip-filter.mrs
+#     path-in-bundle: geo/geosite/private.mrs
 #     type: http
 #     url: https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/fakeip-filter.mrs
 #   games_cn:
@@ -855,14 +798,14 @@
 #     path-in-bundle: geo/geosite/category-games@cn.mrs
 #     type: http
 #     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs
-#   geolocation-!cn:
+#   gfw:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
-#     path: ./ruleset/geolocation-!cn.mrs
-#     path-in-bundle: geo/geosite/geolocation-!cn.mrs
+#     path: ./ruleset/gfw.mrs
+#     path-in-bundle: geo/geosite/gfw.mrs
 #     type: http
-#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs
+#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/gfw.mrs
 #   github:
 #     behavior: domain
 #     format: mrs
@@ -895,6 +838,14 @@
 #     path-in-bundle: geo/geosite/googlefcm.mrs
 #     type: http
 #     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/googlefcm.mrs
+#   hbo:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./ruleset/hbo.mrs
+#     path-in-bundle: geo/geosite/hbo.mrs
+#     type: http
+#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/hbo.mrs
 #   instagram:
 #     behavior: domain
 #     format: mrs
@@ -911,6 +862,14 @@
 #     path-in-bundle: geo/geosite/microsoft.mrs
 #     type: http
 #     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs
+#   microsoft_cn:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./ruleset/microsoft@cn.mrs
+#     path-in-bundle: geo/geosite/microsoft@cn.mrs
+#     type: http
+#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs
 #   netflix:
 #     behavior: domain
 #     format: mrs
@@ -927,6 +886,14 @@
 #     path-in-bundle: geo/geoip/netflix.mrs
 #     type: http
 #     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs
+#   niconico:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./ruleset/niconico.mrs
+#     path-in-bundle: geo/geosite/niconico.mrs
+#     type: http
+#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/niconico.mrs
 #   nvidia_cn:
 #     behavior: domain
 #     format: mrs
@@ -935,14 +902,14 @@
 #     path-in-bundle: geo/geosite/nvidia@cn.mrs
 #     type: http
 #     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nvidia@cn.mrs
-#   pixiv:
+#   pornhub:
 #     behavior: domain
 #     format: mrs
 #     interval: 86400
-#     path: ./ruleset/pixiv.mrs
-#     path-in-bundle: geo/geosite/pixiv.mrs
+#     path: ./ruleset/pornhub.mrs
+#     path-in-bundle: geo/geosite/pornhub.mrs
 #     type: http
-#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/pixiv.mrs
+#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/pornhub.mrs
 #   private:
 #     behavior: domain
 #     format: mrs
@@ -999,6 +966,14 @@
 #     path-in-bundle: geo/geosite/tiktok.mrs
 #     type: http
 #     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs
+#   twitch:
+#     behavior: domain
+#     format: mrs
+#     interval: 86400
+#     path: ./ruleset/twitch.mrs
+#     path-in-bundle: geo/geosite/twitch.mrs
+#     type: http
+#     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/twitch.mrs
 #   twitter:
 #     behavior: domain
 #     format: mrs
@@ -1036,43 +1011,45 @@
 # ==========================================================
 #
 # rules:
+# - AND,((NETWORK,UDP),(DST-PORT,443),(NOT,((OR,((RULE-SET,cn_additional),(RULE-SET,cn_ip,no-resolve)))))),REJECT
 # - RULE-SET,private,直连
 # - RULE-SET,private_ip,直连,no-resolve
 # - RULE-SET,games_cn,直连
 # - RULE-SET,epicgames,直连
 # - RULE-SET,nvidia_cn,直连
-# - RULE-SET,cloudflare_cn,直连
 # - RULE-SET,apple_cn,直连
+# - RULE-SET,microsoft_cn,直连
 # - DOMAIN,fsend.cn,直连
 # - DOMAIN,international-gfe.download.nvidia.com,直连
-# - PROCESS-NAME,com.perol.pixez,Pixiv
-# - PROCESS-NAME,com.perol.play.pixez,Pixiv
-# - RULE-SET,adblockmihomolite,广告拦截
-# - AND,((NETWORK,UDP),(DST-PORT,443),(RULE-SET,youtube)),REJECT
+# - RULE-SET,adblockmihomolite,AdBlock
 # - RULE-SET,ai,AI
-# - RULE-SET,youtube,YouTube
+# - RULE-SET,youtube,Media
+# - RULE-SET,instagram,Media
+# - RULE-SET,netflix,Media
+# - RULE-SET,hbo,Media
+# - RULE-SET,twitch,Media
+# - RULE-SET,disney,Media
+# - RULE-SET,niconico,Media
+# - RULE-SET,bbc,Media
+# - RULE-SET,pornhub,Media
 # - RULE-SET,googlefcm,FCM
 # - RULE-SET,google,Google
 # - RULE-SET,github,GitHub
 # - RULE-SET,microsoft,Microsoft
 # - RULE-SET,apple,Apple
 # - RULE-SET,telegram,Telegram
-# - RULE-SET,cloudflare,Cloudflare
-# - RULE-SET,pixiv,Pixiv
 # - RULE-SET,steam,Steam
+# - RULE-SET,tiktok,TikTok
 # - RULE-SET,twitter,Twitter
-# - RULE-SET,instagram,Instagram
 # - RULE-SET,emby,Emby
+# - DOMAIN-SUFFIX,mb3admin.com,Emby
 # - DOMAIN-KEYWORD,emby,Emby
 # - RULE-SET,spotify,Spotify
-# - RULE-SET,tiktok,TikTok
-# - RULE-SET,netflix,Netflix
 # - RULE-SET,google_ip,Google,no-resolve
 # - RULE-SET,telegram_ip,Telegram,no-resolve
 # - RULE-SET,twitter_ip,Twitter,no-resolve
-# - RULE-SET,cloudflare_ip,Cloudflare,no-resolve
-# - RULE-SET,netflix_ip,Netflix,no-resolve
-# - RULE-SET,geolocation-!cn,默认代理
+# - RULE-SET,netflix_ip,Media,no-resolve
+# - RULE-SET,gfw,默认代理
 # - RULE-SET,cn_additional,直连
 # - RULE-SET,cn_ip,直连
 # - MATCH,漏网之鱼
@@ -1100,9 +1077,7 @@
 #   - rule-set:private
 #   - rule-set:fakeip_filter
 #   fake-ip-range: 198.18.0.1/16
-#   fake-ip-range-v6: fc00::/18
 #   ipv6: true
-#   listen: :1053
 #   nameserver:
 #   - https://dns.cloudflare.com/dns-query#默认代理
 #   - https://dns.google/dns-query#默认代理

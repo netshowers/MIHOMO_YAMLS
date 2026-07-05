@@ -1,5 +1,5 @@
 # OpenClash 覆写模块 - mihomo.yaml
-# 生成日期：2026-06-19
+# 生成日期：2026-07-05
 # 源文件：https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/THEYAMLS/General_Config/echs-top/mihomo.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
@@ -639,7 +639,7 @@
 #   default-nameserver:
 #   - 223.6.6.6
 #   - 119.29.29.29
-#   direct-nameserver: &id001
+#   direct-nameserver: &id002
 #   - https://dns.alidns.com/dns-query#直接连接
 #   - https://doh.pub/dns-query#直接连接&h3=false
 #   direct-nameserver-follow-policy: true
@@ -662,18 +662,17 @@
 #   fake-ip-ttl: 1
 #   ipv6: true
 #   ipv6-timeout: 300
-#   nameserver:
-#   - https://dns.google/dns-query#代理DNS
-#   - https://dns.quad9.net/dns-query#代理DNS
+#   nameserver: &id001
+#   - https://dns.google/dns-query#代理DNS&ecs=8.8.8.8/24&ecs-override=true
+#   - https://dns.quad9.net/dns-query#代理DNS&ecs=9.9.9.9/24&ecs-override=true
 #   nameserver-policy:
 #     rule-set:ads:
 #     - rcode://name_error
-#     rule-set:ai,download,safe,google,media,proxy-lite:
-#     - rcode://success
-#     rule-set:direct-lite,dnsmasq-china-lite: *id001
-#     rule-set:proxy@direct: *id001
+#     rule-set:ai,download,safe,google,media,proxy-lite: *id001
+#     rule-set:direct-lite,dnsmasq-china-lite: *id002
+#     rule-set:proxy@direct: *id002
 #   prefer-h3: true
-#   proxy-server-nameserver: *id001
+#   proxy-server-nameserver: *id002
 #   respect-rules: false
 #   use-hosts: true
 #   use-system-hosts: true
