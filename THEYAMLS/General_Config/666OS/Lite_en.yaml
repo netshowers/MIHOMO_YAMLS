@@ -8,7 +8,7 @@
 # ||      ╚═════╝  ╚═════╝  ╚═════╝      ||
 # ||                                     ||
 # >>=====================================<<
-# Lite_en Edition v2.0.4 by YYDS666 (2026-07-09)
+# Lite_en Edition v2.0.5 by YYDS666 (2026-07-11)
 # Repo: https://github.com/666OS/YYDS | Channel: https://t.me/Pinched666
 # Add your subscription links in proxy-providers, or insert custom nodes under proxies
 
@@ -18,12 +18,12 @@ x-base-provider: &base-provider {type: http, interval: 86400, proxy: DIRECT, hea
 x-url-test:        &url-test        { type: url-test, url: "https://www.gstatic.com/generate_204", interval: 300, empty-fallback: REJECT, include-all: true, hidden: true, tolerance: 50 }
 x-fallback:        &fallback        { type: fallback, url: "https://www.gstatic.com/generate_204", interval: 300, empty-fallback: REJECT }
 
-x-filter-hk:    &filter-hk    "^(?i)(?=.*(港|hk|hongkong|hong kong|🇭🇰|hkg))(?!.*(排除)).*$"
-x-filter-tw:    &filter-tw    "^(?i)(?=.*(台|tw|taiwan|taipei|🇹🇼|🇼🇸|tpe|khh|tsa))(?!.*(排除)).*$"
-x-filter-jp:    &filter-jp    "^(?i)(?=.*(日|jp|japan|tokyo|🇯🇵|nrt|hnd|kix|cts|fuk))(?!.*(排除|尼日)).*$"
-x-filter-sg:    &filter-sg    "^(?i)(?=.*(新|坡|sg|singapore|🇸🇬|sin|xsp))(?!.*(排除|西兰|几内亚|德里|泽西)).*$"
-x-filter-kr:    &filter-kr    "^(?i)(?=.*(韩|韓|kr|korea|seoul|首尔|南朝鲜|🇰🇷|icn|gmp|pus))(?!.*(排除)).*$"
-x-filter-us:    &filter-us    "^(?i)(?=.*(美|us|usa|america|united states|🇺🇸|lax|sfo|jfk|sjc))(?!.*(排除)).*$"
+x-filter-hk:    &filter-hk    "^(?i)(?=.*(香港|港深|深港|沪港|广港|陆港|(?<![a-zA-Z])(hk|hkg)(?![a-zA-Z])|hongkong|hong kong|🇭🇰))(?!.*(排除)).*$"
+x-filter-tw:    &filter-tw    "^(?i)(?=.*(台湾|台北|台中|台南|台东|湾湾|(?<![a-zA-Z])(tw|tpe|khh|tsa)(?![a-zA-Z])|taiwan|taipei|🇹🇼|🇼🇸))(?!.*(排除)).*$"
+x-filter-jp:    &filter-jp    "^(?i)(?=.*(日本|东京|大阪|京都|神奈川|琦玉|(?<![a-zA-Z])(jp|nrt|hnd|kix|cts|fuk)(?![a-zA-Z])|japan|tokyo|🇯🇵))(?!.*(排除)).*$"
+x-filter-sg:    &filter-sg    "^(?i)(?=.*(新加坡|坡县|坡|狮城|(?<![a-zA-Z])(sg|sin|xsp)(?![a-zA-Z])|singapore|🇸🇬))(?!.*(排除)).*$"
+x-filter-kr:    &filter-kr    "^(?i)(?=.*(韩国|韓國|首尔|首爾|南朝鲜|(?<![a-zA-Z])(kr|icn|gmp|pus)(?![a-zA-Z])|korea|seoul|🇰🇷))(?!.*(排除)).*$"
+x-filter-us:    &filter-us    "^(?i)(?=.*(美国|美东|美西|美中|美南|美港|美日|中美|美专|(?<![a-zA-Z])(us|usa|lax|sfo|jfk|sjc)(?![a-zA-Z])|america|united states|🇺🇸))(?!.*(排除)).*$"
 
 x-oversea:      &oversea      [FALLBACK, MANUAL, HK, TW, JP, SG, KR, US, DIRECT]
 x-direct:       &direct       [DIRECT, FALLBACK, MANUAL, HK, TW, JP, SG, KR, US]
@@ -132,8 +132,6 @@ proxy-groups:
   - { name: US, <<: *url-test, filter: *filter-us, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/United_States.png }
 
 rules:
-  # guard
-  - AND,((NETWORK,UDP),(DST-PORT,443),(NOT,((GEOIP,CN,no-resolve)))),REJECT
   # local
   - RULE-SET,Private,DIRECT
   - RULE-SET,PrivateIP,DIRECT,no-resolve

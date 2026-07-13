@@ -10,9 +10,9 @@
 # >>=====================================<<
 # 名称: OneSmart 极简版
 # 地址: https://github.com/666OS/YYDS
-# 版本: v26.1.3
+# 版本: v26.1.4
 # 作者: YYDS666
-# 更新: 2026 年 6 月 5 日
+# 更新: 2026 年 7 月 11 日
 # 频道: https://t.me/Pinched666
 # 描述: 基于全功能版本精简而来，保留核心功能
 
@@ -159,8 +159,6 @@ proxy-groups:
   
 # ==================== 规则路由 ====================
 rules: 
-  # 拦截规则
-  - AND,((DST-PORT,443),(NETWORK,UDP),(NOT,((GEOIP,CN,no-resolve)))),REJECT
 
   # 域名规则
   - RULE-SET,Private,直接连接

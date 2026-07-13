@@ -1,6 +1,6 @@
 # Clash.Meta(mihomo)
 # v1.19.28
-# 2026-07-09 03:24:00
+# 2026-07-11 17:44:00
 
 JNTM: &JNTM
     interval: 43200
@@ -169,8 +169,16 @@ sniffer:
         - 443
         - 8443
 
-# Node Filters
+# NTP
+ntp:
+  enable: true
+  write-to-system: false
+  server: time.apple.com
+  port: 123
+  interval: 30
+  dialer-proxy: DIRECT
 
+# Node Filters
 FilterCN: &FilterCN 
   "^(?!.*(?:🔗|🔀分流|台湾|🇹🇼|香港|🇭🇰|澳门|🇲🇴)).*(?:中国|🇨🇳)"
 
@@ -279,25 +287,29 @@ Route: &Route
             ⛔阻断, ↩️绕过, 
 
             Pornhub, 
+            PikPak, 
             TikTok, 
             Netflix, 
             YouTube, 
+            Emby, 
+            OpenAI,
+            Anthropic,
+            xAI,
             Gemini, 
             Google, 
-            Emby, 
-            GlobalMedia, 
-            Cloudflare, 
+            Apple, 
+            Crypto, 
+            FCM, 
             Epic, 
             Steam, 
+            Spotify, 
             Telegram, 
             GitHub,
             Instagram, 
             Discord, 
-            Spotify, 
-            PikPak, 
-            OpenAI, 
-            Apple, 
             Microsoft, 
+            Cloudflare, 
+
             China, 
 
             🇭🇰手动选择, 🇸🇬手动选择, 
@@ -548,25 +560,30 @@ Global: &Global
             中转, 落地, 
 
             Pornhub, 
+            PikPak, 
             TikTok, 
             Netflix, 
             YouTube, 
+            Emby, 
+            OpenAI,
+            Anthropic,
+            xAI,
             Gemini, 
             Google, 
-            Emby, 
-            GlobalMedia, 
-            Cloudflare, 
+            Apple, 
+            Crypto, 
+            FCM, 
             Epic, 
             Steam, 
+            Spotify, 
             Telegram, 
             GitHub,
             Instagram, 
             Discord, 
-            Spotify, 
-            PikPak, 
-            OpenAI, 
-            Apple, 
             Microsoft, 
+            Cloudflare, 
+            
+
             China, 
 
             🇭🇰手动选择, 🇸🇬手动选择, 
@@ -780,11 +797,6 @@ proxy-groups:
     filter: *FilterAll
     icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/Emby.png"
 
-  - name: GlobalMedia
-    <<: *Select_General
-    filter: *FilterAll
-    icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/Streaming.png"
-
   - name: Cloudflare
     <<: *Select_General
     filter: *FilterAll
@@ -849,6 +861,27 @@ proxy-groups:
     <<: *Select_General
     filter: *FilterAll
     icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/Microsoft.png"
+
+  - name: Crypto
+    <<: *Select_General
+    filter: *FilterAll
+    icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/Bitcoin.png"
+
+  - name: xAI
+    <<: *Select_General
+    filter: *FilterAll
+    icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/xai.png"
+
+  - name: Anthropic
+    <<: *Select_General
+    filter: *FilterAll
+    icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/claude.png"
+
+  - name: FCM
+    <<: *Select_General
+    filter: *FilterAll
+    default-selected: ➡️直连
+    icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/FCM.png"
 
   ### China
   - name: China
@@ -1241,16 +1274,6 @@ rule-providers:
     url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/PikPak_geosite.mrs"
     path: "./rule_set/PikPak_geosite.mrs"
 
-  GlobalMedia_geosite:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 43200
-    proxy: 🎯默认
-    path-in-bundle: "GlobalMedia_geosite.mrs"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/GlobalMedia_geosite.mrs"
-    path: "./rule_set/GlobalMedia_geosite.mrs"
-
   Apple_geosite:
     type: http
     behavior: domain
@@ -1361,6 +1384,46 @@ rule-providers:
     url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Instagram_geosite.mrs"
     path: "./rule_set/Instagram_geosite.mrs"
 
+  Anthropic_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯默认
+    path-in-bundle: "Anthropic_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Anthropic_geosite.mrs"
+    path: "./rule_set/Anthropic_geosite.mrs"
+
+  xAI_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯默认
+    path-in-bundle: "xAI_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/xAI_geosite.mrs"
+    path: "./rule_set/xAI_geosite.mrs"
+
+  GoogleFCM_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯默认
+    path-in-bundle: "GoogleFCM_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/GoogleFCM_geosite.mrs"
+    path: "./rule_set/GoogleFCM_geosite.mrs"
+
+  Cryptocurrency_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯默认
+    path-in-bundle: "Cryptocurrency_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Cryptocurrency_geosite.mrs"
+    path: "./rule_set/Cryptocurrency_geosite.mrs"
+
 
   Pornhub_classical:
     type: http
@@ -1392,6 +1455,9 @@ sub-rules:
     - RULE-SET,private_geosite,DIRECT
     - RULE-SET,private_geoip,DIRECT
   
+    # FCM
+    - RULE-SET,GoogleFCM_geosite,FCM
+
     # Steam
     - RULE-SET,SteamCN_geosite,China
     - RULE-SET,Steam_geosite,Steam
@@ -1417,39 +1483,45 @@ sub-rules:
   
     # Discord
     - RULE-SET,Discord_geosite,Discord
-  
+
     # TikTok
     - RULE-SET,TikTok_geosite,TikTok
-  
+
     # Pornhub
     - RULE-SET,Pornhub_classical,Pornhub
-  
+
+    # Cryptocurrency
+    - RULE-SET,Cryptocurrency_geosite,Crypto
+
     # Gemini
     - RULE-SET,Gemini_geosite,Gemini
-  
+
+    # xAI
+    - RULE-SET,xAI_geosite,xAI
+
+    # Anthropic
+    - RULE-SET,Anthropic_geosite,Anthropic
+
     # OpenAI
     - RULE-SET,OpenAI_geosite,OpenAI
-  
+
     # YouTube
     - RULE-SET,YouTube_geosite,YouTube
-  
+
     # Netflix
     - RULE-SET,Netflix_geosite,Netflix
     - RULE-SET,Netflix_geoip,Netflix
-  
-    # GlobalMedia
-    - RULE-SET,GlobalMedia_geosite,GlobalMedia
+
+    # Apple
+    - RULE-SET,Apple_geosite,Apple
+
+    # Microsoft
+    - RULE-SET,Microsoft_geosite,Microsoft
   
     # Google
     - RULE-SET,Google_geosite,Google
     - RULE-SET,Google_geoip,Google
-  
-    # Apple
-    - RULE-SET,Apple_geosite,Apple
-  
-    # Microsoft
-    - RULE-SET,Microsoft_geosite,Microsoft
-  
+
     # Cloudflare
     - RULE-SET,Cloudflare_geosite,Cloudflare
     - RULE-SET,Cloudflare_geoip,Cloudflare
